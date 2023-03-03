@@ -1,4 +1,4 @@
-module github.com/mkraft/xteam
+module example/removeduplicates
 
 go 1.20
 
