@@ -5,7 +5,7 @@ func RemoveDuplicates(in []int) []int {
 	var inRepeatMode bool
 	numUniqueValues := 1
 	length := len(in) - 1
-	for i := 0; i < length; i++ {
+	for i := 0; i < length; i++ { // "scanning" loop to compare (i,i+1) tuples
 		a, b := in[i], in[i+1]
 		if a == b {
 			if !inRepeatMode {
@@ -15,7 +15,7 @@ func RemoveDuplicates(in []int) []int {
 		} else {
 			numUniqueValues++
 			if inRepeatMode {
-				for k := 0; k < i-indexLastUnique; k++ {
+				for k := 0; k < i-indexLastUnique; k++ { // "swapping" loop to swap each duplicate past the unscanned values
 					for j := indexLastUnique + 1; j < length; j++ { // use `length` instead of `len(in)-1` to minimize swaps
 						tmp := in[j]
 						in[j] = in[j+1]
@@ -28,5 +28,5 @@ func RemoveDuplicates(in []int) []int {
 			}
 		}
 	}
-	return in[:numUniqueValues]
+	return in[:numUniqueValues] // slice out the duplicates
 }
