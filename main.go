@@ -16,12 +16,12 @@ func RemoveDuplicates(in []int) []int {
 			numUniqueValues++
 			if inRepeatMode {
 				for k := 0; k < i-indexLastUnique; k++ {
-					for j := indexLastUnique + 1; j < length; j++ {
+					for j := indexLastUnique + 1; j < length; j++ { // use `length` instead of `len(in)-1` to minimize swaps
 						tmp := in[j]
 						in[j] = in[j+1]
 						in[j+1] = tmp
 					}
-					length--
+					length-- // decrement length to avoid re-scanning duplicates
 				}
 				inRepeatMode = false
 				i = indexLastUnique
