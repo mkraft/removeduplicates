@@ -16,7 +16,7 @@ func RemoveDuplicates(in []int) []int {
 			numUniqueValues++
 			if inRepeatMode {
 				for k := 0; k < i-indexLastUnique; k++ {
-					for j := indexLastUnique + 1; j < len(in)-1; j++ {
+					for j := indexLastUnique + 1; j < length; j++ {
 						tmp := in[j]
 						in[j] = in[j+1]
 						in[j+1] = tmp
